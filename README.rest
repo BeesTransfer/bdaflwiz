@@ -6,6 +6,7 @@ How to play with it
 ===================
 
 Run ipython and search for the given consignor identifier::
+
   $ ipython
   In [1]: from bdaflwiz import endpoint
   In [2]: my_shipment_track = endpoint.Endpoint().search("XXXX")
