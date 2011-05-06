@@ -1,0 +1,9 @@
+*.pyc
+*\#*
+*~
+.coverage
+dist/
+bdaflwiz.egg-info/
+docs/build/
+MANIFEST
+build/
