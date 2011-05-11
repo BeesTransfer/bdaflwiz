@@ -61,7 +61,7 @@ setup(
         "License :: Other/Proprietary License",
     ],
     install_requires=[
-        "python-dateutil"
+        "python-dateutil==1.5"
     ],
     cmdclass={'sdist': CustomSourceDistribution}
 )
