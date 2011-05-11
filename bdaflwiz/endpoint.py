@@ -56,7 +56,17 @@ class Endpoint(object):
 
         cps_raw = resource_as_dict["SHIPMENTTRACK"]["SHIPMENTREPORT"]["CHECKPOINTDETAILS"]["CHECKPOINTS"]
         cps_tba = []
-        for cp in cps_raw:
+        if isinstance(cps_raw, list):
+            for cp in cps_raw:
+                cps_tba.append(ShipmentTrackCP(
+                    CHECKDATE=cp["CHECKDATE"],
+                    CHECKPOINT=cp["CHECKPOINT"],
+                    CHECKPOINTDESCRIPTION=cp["CHECKPOINTDESCRIPTION"],
+                    CHECKTIME=cp["CHECKTIME"],
+                    LOCATIONNAME=cp["LOCATIONNAME"],
+                    CHECKDATETIME=parse_datetime("%s %s" % (cp["CHECKDATE"], cp["CHECKTIME"]))))
+        else:
+            cp = cps_raw
             cps_tba.append(ShipmentTrackCP(
                 CHECKDATE=cp["CHECKDATE"],
                 CHECKPOINT=cp["CHECKPOINT"],
